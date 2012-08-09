@@ -21,7 +21,7 @@ class PageBuilder {
 		$return = '<!DOCTYPE html>
 <html>
 	<head>
-		<title>Spotimote</title>
+		<title>What the fuck are we listening to?</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="./_includes/css/site/screen.css" media="screen" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
