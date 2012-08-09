@@ -55,10 +55,11 @@ class PageBuilder {
 						<div class="progress-bar"><div class="progress-bar-fill"></div></div>
 						<p id="time-remaining"></p>
 					</div>
+					<a id="link-to-track" href="" target="_blank">Open track in Spotify</a>
 				</div>
 
 				<div id="status"></div>
-				<a id="link-to-track" href="" target="_blank">Open track in Spotify</a>
+
 				<div id="foot">
 					<div id="volume">
 						<p id="volume-down"><a href="#" data-command="volume-down"><span class="visuallyhidden">Down</span></a></p>
