@@ -238,8 +238,8 @@ var spotifyRemote = function(){
 
 					if(!!status.url && currentUrl != status.url){
 						currentUrl =  status.url;
-						$('#spotify-button').remove();
-						$('#wrapper').append('<iframe id="spotify-button" src="https://embed.spotify.com/?uri='+status.url+'" frameborder="0" allowtransparency="true"></iframe>');
+						// $('#spotify-button').remove();
+						// $('#wrapper').append('<iframe id="spotify-button" src="https://embed.spotify.com/?uri='+status.url+'" frameborder="0" allowtransparency="true"></iframe>');
 						$('#link-to-track').attr('href', 'http://open.spotify.com/track/'+status.url.split(':')[2]);
 
 					}
