@@ -32,7 +32,9 @@ on run args
 				set _duration to duration of current track
 				set _position to player position as text
 				set _volume to sound volume
+				set _url to spotify url of current track
 
+				
 				set _position to my string_replace(",", ".", _position)
 				
 				-- condition : only get artwork if it's a new track
@@ -60,7 +62,8 @@ on run args
 					\"track_number\": " & _track_number & ",
 					\"volume\": " & _volume & ",
 					\"album_changed\": " & album_changed & ",
-					\"current_album\": \"" & current_album & "\"
+					\"current_album\": \"" & current_album & "\",
+					\"url\" : \"" & _url & "\" 
 				}" 
 			
 			-- Spotify not playing

@@ -27,6 +27,7 @@ var spotifyRemote = function(){
 	
 	// the current album (not non-null default)
 	currentAlbum = ".",
+	currentUrl = '',
 
 	/**
 	 * The options passed through to this function
@@ -235,6 +236,12 @@ var spotifyRemote = function(){
 						currentAlbum = status.album;
 					}
 					
+					if(!!status.url && currentUrl != status.url){
+						currentUrl =  status.url;
+						$('#spotify-button').remove();				
+						$('#wrapper').append('<iframe id="spotify-button" src="https://embed.spotify.com/?uri='+status.url+'" frameborder="0" allowtransparency="true"></iframe>');
+		
+					}	
 				break;
 			}
 		}

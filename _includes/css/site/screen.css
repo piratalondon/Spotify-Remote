@@ -216,3 +216,8 @@
 		.stopped #volume {
 			display:none;
 		}
+
+	#spotify-button {
+		position:absolute;
+		z-index: 10;
+	}
