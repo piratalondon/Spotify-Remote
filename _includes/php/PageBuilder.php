@@ -1,18 +1,18 @@
-<?php 
+<?php
 /**
- * page builder class.	
+ * page builder class.
  * build page header and footer
  *
 */
 class PageBuilder {
-	
+
 	/**
 	 * The constructor.
 	 */
 	function __construct() {
 	}
 
-	
+
 	/**
 	 * Build the page
 	 */
@@ -21,9 +21,9 @@ class PageBuilder {
 		$return = '<!DOCTYPE html>
 <html>
 	<head>
-		<title>Spotimote</title>	
+		<title>Spotimote</title>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="./_includes/css/site/screen.css" media="screen" />		
+		<link rel="stylesheet" href="./_includes/css/site/screen.css" media="screen" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,7 +43,7 @@ class PageBuilder {
 	<body>
 		<div id="horizon">
 			<div id="wrapper">
-				
+
 				<div id="head">
 					<div id="title">
 						<p id="track-name">[loading]</p>
@@ -56,9 +56,9 @@ class PageBuilder {
 						<p id="time-remaining"></p>
 					</div>
 				</div>
-				
+
 				<div id="status"></div>
-				
+				<a id="link-to-track" href="" target="_blank">Open track in Spotify</a>
 				<div id="foot">
 					<div id="volume">
 						<p id="volume-down"><a href="#" data-command="volume-down"><span class="visuallyhidden">Down</span></a></p>
@@ -70,14 +70,15 @@ class PageBuilder {
 						<p id="play-pause"><a href="#" data-command="toggle"><span class="visuallyhidden">Play</span></a></p>
 						<p id="next"><a href="#" data-command="next"><span class="visuallyhidden">Next track</span></a></p>
 					</div>
+
 				</div>
-				
+
 			</div>
 		</div>
 	</body>
-</html> 
+</html>
 		';
 
 		return $return;
-	}	
+	}
 }

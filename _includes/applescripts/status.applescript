@@ -1,6 +1,6 @@
 -- Init
 on run args
-	
+
 	-- is Spotify running?
 	try
 
@@ -10,20 +10,20 @@ on run args
 
 			-- is Spotify playing?
 			if _state is not stopped
-			
+
 				local current_album
-				
+
 				-- passed parameter (current album)
 				set current_album to item 1 of args
 				set current_album_escaped to my string_replace("\\\\'", "'", current_album)
-				
+
 				-- set up album artwork directories/parameters
 				tell application "Finder"
 					set script_path to container of (path to me) as text
 					set artwork_dir to script_path & ":img:album:"
 					set artwork_path to artwork_dir & "album.tiff"
 				end tell
-				
+
 				-- save track details
 				set _track to name of current track
 				set _artist to artist of current track
@@ -33,10 +33,11 @@ on run args
 				set _position to player position as text
 				set _volume to sound volume
 				set _url to spotify url of current track
+				set _id to id of current track
 
-				
+
 				set _position to my string_replace(",", ".", _position)
-				
+
 				-- condition : only get artwork if it's a new track
 				if current_album_escaped is not album of current track then
 					set album_changed to true
@@ -45,7 +46,7 @@ on run args
 					my convert_tiff_to_jpeg(artwork_path, "album.jpg", artwork_dir)
 				else
 					set album_changed to false
-				end if 
+				end if
 
 				set track_escaped to my string_replace("\"", "'", _track)
 
@@ -63,25 +64,27 @@ on run args
 					\"volume\": " & _volume & ",
 					\"album_changed\": " & album_changed & ",
 					\"current_album\": \"" & current_album & "\",
-					\"url\" : \"" & _url & "\" 
-				}" 
-			
+					\"url\" : \"" & _url & "\",
+					\"id\" : \"" & _id & "\"
+
+				}"
+
 			-- Spotify not playing
 			else
 				set output to "{
 					\"state\" : \"" & _state & "\"
 				}"
-			end if			  
-			
+			end if
+
 		end tell
-		
+
 	-- Spotify not running
 	on error error_message
 		set output to "{
 			\"state\" : \"closed\"
 		}"
 	end try
-	
+
 end run
 
 
@@ -108,11 +111,11 @@ on convert_tiff_to_jpeg(source_file, new_name, results_folder)
 		with timeout of 15 seconds
 			tell application "Image Events"
 				launch
-				
+
 				set this_image to open file (source_file as string)
-				save this_image as JPEG in file target_path 
+				save this_image as JPEG in file target_path
 				close this_image
-				
+
 			end tell
 		end timeout
 	on error error_message
